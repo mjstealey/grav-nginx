@@ -331,7 +331,7 @@ _mime_types () {
   echo "    video/x-ms-wmv                        wmv;" >> $OUTFILE
   echo "    video/x-msvideo                       avi;" >> $OUTFILE
   echo "" >> $OUTFILE
-  echo "    # Serving `.ico` image files with a different media type" >> $OUTFILE
+  echo "    # Serving '.ico' image files with a different media type" >> $OUTFILE
   echo "    # prevents Internet Explorer from displaying then as images:" >> $OUTFILE
   echo "    # https://github.com/h5bp/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee" >> $OUTFILE
   echo "" >> $OUTFILE
