@@ -143,3 +143,15 @@ After a few moments the running site can be found at [https://localhost](https:/
 ![https-ssl-cert-warning](https://user-images.githubusercontent.com/5332509/27988520-7de8ff60-63f1-11e7-9642-0a5a45d9a90c.png)
 
 ![https-grav-admin](https://user-images.githubusercontent.com/5332509/27988522-83b1402e-63f1-11e7-9919-5c0d7c7de4f3.png)
+
+All of the grav site related files will now be stored in the local `html` directory of the checked out repository.
+
+```bash
+$ ls ./html
+CHANGELOG.md       README.md          cache              index.php          robots.txt         vendor
+CODE_OF_CONDUCT.md assets             composer.json      local.dev.crt      system             webserver-configs
+CONTRIBUTING.md    backup             composer.lock      local.dev.key      tmp
+LICENSE.txt        bin                images             logs               user
+```
+
+The two files named `local.dev.crt` and `local.dev.key` are the self generated SSL certificate and key pair. These are moved to locations `/etc/ssl/certs/server.crt` and `/etc/ssl/private/server.key` for use by Nginx in the **grav** container by the `docker-entrypoint.sh` script at runtime.
