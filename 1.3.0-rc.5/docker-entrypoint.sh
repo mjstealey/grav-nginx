@@ -430,10 +430,12 @@ _install_grav () {
 }
 
 _self_gen_ssl_cert () {
-  openssl req -newkey rsa:4096 -days 365 -nodes -x509 \
-    -subj "/C=US/ST=North Carolina/L=Chapel Hill/O=Local/OU=Development/CN=local.dev/emailAddress=email@local.dev" \
-    -keyout local.dev.key \
-    -out local.dev.crt
+  if [[ ! -e local.dev.crt || ! -e local.dev.key ]]; then
+    openssl req -newkey rsa:4096 -days 365 -nodes -x509 \
+      -subj "/C=US/ST=North Carolina/L=Chapel Hill/O=Local/OU=Development/CN=local.dev/emailAddress=email@local.dev" \
+      -keyout local.dev.key \
+      -out local.dev.crt
+  fi
   cp local.dev.crt ${SSL_CERTIFICATE}
   cp local.dev.key ${SSL_CERTIFICATE_KEY}
 }
